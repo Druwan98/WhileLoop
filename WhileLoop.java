@@ -14,22 +14,28 @@ public class WhileLoop {
                 int daysCount = 0;
 
                 while (britishPounds > 0) {
-                        daysCount++;
-                        double exchangeRate = 1 + (Math.random() * 0.2);
-                        if (exchangeRate > 1.15){
-                                britishPounds= britishPounds-1000;
-                                System.out.println(britishPounds);
-                        } else {
-                                System.out.println(britishPounds);
+                        if (britishPounds <= 0) {
+                                break;
                         }
 
-                        System.out.print("Day: " + daysCount + " = ");
+                        double exchangeRate = 1 + (Math.random() * 0.2);
+
+
+
+                        if (exchangeRate > 1.15) {
+                                britishPounds -= 1000; //britishPounds = britishPounds - 1000;
+                                System.out.println("The exchange rate today is great! It's time to sell.           -1000 = £" + britishPounds + " remaining.");
+
+                        }else {
+                                System.out.println("The exchange rate is not optimal today. So it's not for sale.");
+                        }
+
+                        System.out.print("Day " + daysCount + ": ");
+
+                        daysCount ++ ;
 
                 }
-
-        
-
-
+                System.out.println((daysCount - 1) + " days it takes to sell all the pounds.");
 
         }
 }
